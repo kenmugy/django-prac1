@@ -47,9 +47,15 @@
         </div>
       </nav>
     </header>
+
     <main role="main" class="container">
         <div class="row">
           <div class="col-md-8">
+              {% if messages %}
+              {% for message in messages %}
+              .alert.alert-{{message.tags}}
+              {% endfor %}
+              {% endif %}
             {% block content %}{% endblock %}
           </div>
           <div class="col-md-4">
